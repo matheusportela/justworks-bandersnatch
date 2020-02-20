@@ -876,7 +876,7 @@ class Engine:
 
       try:
         selected_option = int(input('> '))
-        if selected_option < 0 or selected_option > len(options):
+        if selected_option <= 0 or selected_option > len(options):
           raise AttributeError
       except ValueError:
         print(f'Option must be a number. Try again.')
