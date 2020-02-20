@@ -1,10 +1,18 @@
 import logging
 import os
+import time
 
 FORMAT = '%(message)s'
 logging.basicConfig(format=FORMAT)
 logger = logging.getLogger('main')
 logger.setLevel(os.environ.get('LOG', 'INFO').upper())
+
+def pprint(string=""):
+  for c in string:
+    print(c, end='', flush=True)
+    time.sleep(0.005)
+  print()
+
 
 class GameState:
   def __init__(self):
@@ -854,16 +862,17 @@ class Engine:
     self.node.contract()
 
   def print_node_text(self):
-    for _ in range(100):
-      print()
-    print(self.node.text())
+    # for _ in range(100):
+    #   print()
+    os.system('clear')
+    pprint(self.node.text())
 
   def select_node_option(self):
     options = self.node.options()
 
     while True:
       for i, (text, _, _) in enumerate(options):
-        print(f'{i+1}) {text}')
+        pprint(f'{i+1}) {text}')
 
       try:
         selected_option = int(input('> '))
