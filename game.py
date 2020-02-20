@@ -67,7 +67,7 @@ What sort of company are you going to open?
   def options(self):
     return [
       ('Software consultancy', Node1, {'company type': 'software consultancy'}),
-      ('Law firm', Node1, {'company type': 'restaurant'}),
+      ('Law firm', Node1, {'company type': 'law firm'}),
     ]
 
 
@@ -141,7 +141,7 @@ What tax form will you submit?
 """
 
   def options(self):
-    wrong_form_balance = self.state['balance'] - 25.00
+    wrong_form_balance = self.state['balance'] - 50.00
     right_form_balance = self.state['balance'] - 5.00
 
     if self.state['number of employees'] == 0:
@@ -169,7 +169,7 @@ class Node5(GameNode):
 Company balance: ${self.state['balance']}
 Company size: {self.state['number of employees']}
 
-MESSAGE FROM IRS: WRONG FORM!!!! YOUR FINE IS 25% >:(
+MESSAGE FROM IRS: WRONG FORM!!!! YOUR FINE IS 50% >:(
 """
 
   def options(self):
@@ -200,15 +200,15 @@ class Node7(GameNode):
 
   def text(self):
     return f"""Mar 1st, 2018.
-Company balance: ${self.state['balance'] + 5_000}
+Company balance: ${self.state['balance'] + 5_500}
 Company size: {self.state['number of employees'] + 2}
 
-Your company is growing fast. You made $5,000 this month and hired 2 new employees!
+Your company is growing fast. You made $5,500 this month and hired 2 new employees!
 """
 
   def options(self):
     return [
-      ('Nice!', Node8, {'number of employees': self.state['number of employees'] + 2, 'balance': self.state['balance'] + 5_000}),
+      ('Nice!', Node8, {'number of employees': self.state['number of employees'] + 2, 'balance': self.state['balance'] + 5_500}),
     ]
 
 class Node8(GameNode):
@@ -280,12 +280,12 @@ Company size: {self.state['number of employees']}
 
 Message from USCIS: WHERE ARE THE I-9 FORMS??
 
-Pay $4,500 in fines.
+Pay $4,575 in fines.
 Also, submit the forms.
 """
 
   def options(self):
-    new_balance = self.state['balance'] - 4_500
+    new_balance = self.state['balance'] - 4_575
 
     if new_balance < 0:
       return [
@@ -704,7 +704,7 @@ class Node31(GameNode):
 Company balance: ${self.state['balance']}
 Company size: {self.state['number of employees']}
 
-IRS says: Yeah... I noticed. Tour form was wrong and I'm gonna fine you in $15,000.
+IRS says: Yeah... I noticed. Your form was wrong and I'm gonna fine you in $15,000.
 """
 
   def options(self):
