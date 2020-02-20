@@ -872,7 +872,10 @@ class Engine:
       except ValueError:
         print(f'Option must be a number. Try again.')
       except AttributeError:
-        print(f'Option must be from 1 to {len(options)}. Try again.')
+        if len(options) == 1:
+          print(f'Option must be 1. Try again.')
+        else:
+          print(f'Option must be from 1 to {len(options)}. Try again.')
       except (KeyboardInterrupt, EOFError):
         exit(1)
       else:
