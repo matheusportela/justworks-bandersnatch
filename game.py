@@ -370,7 +370,7 @@ class Node14(GameNode):
 Company balance: ${self.state['balance']}
 Company size: {self.state['number of employees']}
 
-You enroll into Justworks through their and the onboarding team is great!
+You enroll into Justworks through their website and the onboarding team is great!
 """
 
   def options(self):
@@ -389,7 +389,7 @@ Company size: {self.state['number of employees']}
 
 Monthly revenue: $10,000!
 
-One of your employees live in New Jersey...
+One of your employees lives in New Jersey...
 """
 
   def options(self):
